@@ -1,4 +1,4 @@
-import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 import * as actionTypes from './actionTypes';
 
 const initialState = {
@@ -7,6 +7,10 @@ const initialState = {
   list: [],
   byName: {},
 }
+
+const matchEnglishLanguage = (nameData) => nameData.language.name === 'en';
+
+const matchNationalPokedex = (pokedexData) => pokedexData.pokedex.name === 'national'
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -28,31 +32,25 @@ export function reducer(state = initialState, action) {
 
     case actionTypes.FETCH_POKEMON_ONE_SUCCESS: {
       const { payload: pokemon } = action;
-      const omitKeys = [
-        'held_items',
-        'game_indicies',
-        'species',
-        'evolves_from_species',
-        'flavor_text_entries',
-        'egg_groups',
-        'generation',
-        'growth_rate',
-        'forms_switchable',
-        'form_descriptions',
-        'forms',
-        'order',
-        'habitat',
-        'hatch_counter',
-        'varieties',
-      ]
+      const pickKeys = [
+        'abilities',
+        'stats',
+        'name',
+        'sprites',
+        'evolution_chain',
+      ];
 
       return {
         ...state,
         byName: {
           ...state.byName,
           [pokemon.name]: {
-            ...omit(pokemon, omitKeys),
-            moves: pokemon.moves.map(moveData => moveData.move.name)
+            ...pick(pokemon, pickKeys),
+            types: pokemon.types.map(typeData => typeData.type.name),
+            translatedGenus: pokemon.genera.find(matchEnglishLanguage).genus,
+            translatedName: pokemon.names.find(matchEnglishLanguage).name,
+            moves: pokemon.moves.map(moveData => moveData.move.name),
+            nationalPokedexNumber: pokemon.pokedex_numbers.find(matchNationalPokedex).entry_number,
           },
         }
       };

@@ -1,35 +1,28 @@
 import React from 'react'
-import { connect } from "react-redux";
-import { getPokemonAvatar, getPokemonStats, getPokemonName } from "../../store/pokemons/selectors";
-import { PokemonStats } from './PokemonStats';
+import { PokemonNameContext } from '../../contexts/PokemonNameContext';
+import { PokemonStatsContainer } from './PokemonStats';
+import { PokemonAvatarContainer } from './PokemonAvatar';
+import { PokemonNameContainer } from './PokemonName';
+import { PokemonGenusContainer } from './PokemonGenus';
+import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
 
 export function PokemonCard(props) {
-  const {
-    translatedPokemonName,
-    pokemonAvatar,
-    pokemonStats,
-  } = props;
+  const { pokemonName } = props;
 
   return (
-    <div>
+    <PokemonNameContext.Provider value={pokemonName}>
       <hr />
-      {pokemonAvatar && <img src={pokemonAvatar} alt="" />}
-      <br/>
-      Name: {translatedPokemonName}
+      <PokemonAvatarContainer />
       <br />
-      <PokemonStats pokemonStats={pokemonStats} />
-    </div>
+      <PokemonNationalNumberContainer />
+      <br />
+      <PokemonNameContainer />
+      <br/>
+      <PokemonGenusContainer />
+      <br />
+      <PokemonStatsContainer />
+    </PokemonNameContext.Provider>
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const { pokemonName: name } = ownProps;
-
-  return {
-    translatedPokemonName: getPokemonName(state, name),
-    pokemonAvatar: getPokemonAvatar(state, name),
-    pokemonStats: getPokemonStats(state, name),
-  }
-}
-
-export const PokemonCardContainer = connect(mapStateToProps)(PokemonCard);
+export const PokemonCardContainer = PokemonCard;

@@ -1,5 +1,9 @@
 import React from 'react'
-import startCase from 'lodash/startCase'
+import { connect } from 'react-redux';
+import startCase from 'lodash/startCase';
+import flowRight from 'lodash/flowRight';
+import { getPokemonStats } from '../../store/pokemons/selectors';
+import { withPokemonName } from '../../hocs/withPokemonName';
 
 export function PokemonStats(props) {
   const { pokemonStats } = props;
@@ -23,3 +27,12 @@ export function PokemonStats(props) {
     </table>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  pokemonStats: getPokemonStats(state, ownProps.pokemonName)
+});
+
+export const PokemonStatsContainer = flowRight([
+  withPokemonName,
+  connect(mapStateToProps),
+])(PokemonStats);

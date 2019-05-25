@@ -27,7 +27,9 @@ export const getPokemonAvatar = (state, name) => {
   return sprites.front_default;
 };
 
-export const getPokemonName = (state, name) => getPokemonByName(state, name).names.find(nameData => nameData.language.name === 'en').name;
+export const getPokemonTranslatedGenus = (state, name) => getPokemonByName(state, name).translatedGenus;
+
+export const getPokemonTranslatedName = (state, name) => getPokemonByName(state, name).translatedName;
 
 export const getPokemonStats = (state, name) => getPokemonByName(state, name).stats;
 
@@ -39,8 +41,8 @@ export const getPokemonHeight = (state, name) => getPokemonByName(state, name).h
 
 export const getPokemonWeight = (state, name) => getPokemonByName(state, name).weight / 10;
 
-export const getPokemonNationalIndex = (state, name) => {
-  const { id } = getPokemonByName(state, name);
+export const getPokemonNationalNumber = (state, name) => {
+  const { nationalPokedexNumber } = getPokemonByName(state, name);
 
-  return padStat(id, 3, 0);
+  return padStat(nationalPokedexNumber, 3, 0);
 }
