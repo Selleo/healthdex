@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { PokemonNameContext } from '../../contexts/PokemonNameContext';
 import { PokemonStatsContainer } from './PokemonStats';
 import { PokemonAvatarContainer } from './PokemonAvatar';
@@ -6,7 +6,7 @@ import { PokemonNameContainer } from './PokemonName';
 import { PokemonGenusContainer } from './PokemonGenus';
 import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
 
-export function PokemonCard(props) {
+export const PokemonCard = memo(function PokemonCard(props) {
   const { pokemonName } = props;
 
   return (
@@ -17,12 +17,12 @@ export function PokemonCard(props) {
       <PokemonNationalNumberContainer />
       <br />
       <PokemonNameContainer />
-      <br/>
+      <br />
       <PokemonGenusContainer />
       <br />
       <PokemonStatsContainer />
     </PokemonNameContext.Provider>
   )
-}
+});
 
 export const PokemonCardContainer = PokemonCard;
