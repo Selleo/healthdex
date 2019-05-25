@@ -1,9 +1,9 @@
-import React, { memo, useContext } from "react";
-import { PokemonNameContext } from "../contexts/PokemonNameContext";
+import React, { memo } from "react";
+import { usePokemonName } from "../hooks/usePokemonName";
 
 export function withPokemonName(WrappedComponent) {
   function NamedPokemon(props) {
-    const pokemonName = useContext(PokemonNameContext);
+    const pokemonName = usePokemonName();
 
     return (
       <WrappedComponent {...props} pokemonName={pokemonName} />
