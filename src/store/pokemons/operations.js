@@ -15,13 +15,24 @@ export const fetchPokemonList = (type = null) => async (dispatch) => {
   }
 }
 
-export const fetchPokemon = (name) => async (dispatch) => {
-  try {
-    const pokemon = await api.getPokemonByName(name);
-    dispatch(actions.fetchPokemonOneSuccess(pokemon));
-  } catch (error) {
-    // pika pika?
+export const fetchPokemon = (name) => async (dispatch, getState) => {
+  const state = getState();
+
+  if (hasPokemon(state, name)) {
+    return;
   }
+
+  const [pokemon, species] = await Promise.all([
+    api.getPokemonByName(name),
+    api.getPokemonSpeciesByName(name),
+  ])
+
+  const payload = {
+    ...pokemon,
+    ...species,
+  };
+
+  dispatch(actions.fetchPokemonOneSuccess(payload));
 }
 
 export const fetchMissingPokemons = (offset, limit) => async (dispatch, getState) => {
@@ -29,20 +40,6 @@ export const fetchMissingPokemons = (offset, limit) => async (dispatch, getState
   const list = getPokemonList(state);
 
   list.slice(offset, offset + limit).forEach(async name => {
-    if (hasPokemon(state, name)) {
-      return;
-    }
-
-    const [pokemon, species] = await Promise.all([
-      api.getPokemonByName(name),
-      api.getPokemonSpeciesByName(name),
-    ])
-
-    const payload = {
-      ...pokemon,
-      ...species,
-    };
-
-    dispatch(actions.fetchPokemonOneSuccess(payload));
+    fetchPokemon(name)(dispatch, getState);
   })
 }
