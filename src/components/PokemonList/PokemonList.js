@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller'
 import { getLoadedPokemonList, getLoadedPokemonListSize, getPokemonListSize, isPokemonListLoading } from '../../store/pokemons/selectors';
@@ -6,7 +6,7 @@ import { fetchMissingPokemons } from '../../store/pokemons/operations';
 import { PokemonCardContainer } from '../PokemonCard';
 import { Loader } from '../Loader';
 
-const limit = 5;
+const limit = 10;
 
 export function PokemonList(props) {
   const {

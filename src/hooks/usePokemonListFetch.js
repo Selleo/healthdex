@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 
 export function usePokemonListFetch(fetcher, type) {
-  const deps = [fetcher, type];
-
-  const handler = () => {
+  const fetchHandler = () => {
     fetcher(type)
   }
 
-  useEffect(handler, deps)
+  const scrollHandler = () => {
+    window.scrollTo({
+      top: 0
+    })
+  }
+
+  useEffect(fetchHandler, [fetcher, type])
+  useEffect(scrollHandler, [type]);
 }
