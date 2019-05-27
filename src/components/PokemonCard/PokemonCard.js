@@ -30,6 +30,7 @@ export const PokemonCard = memo(function PokemonCard(props) {
           <PokemonNationalNumberContainer />
           <PokemonNameContainer />
           <PokemonGenusContainer />
+          <PokemonTypesContainer />
         </div>
         <PokemonStatsContainer />
       </div>
