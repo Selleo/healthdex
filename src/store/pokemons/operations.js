@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import { getPokemonList, hasPokemon } from './selectors';
 import {
   fetchPokemonListRequest,
@@ -8,6 +9,7 @@ import {
 } from './actions';
 import * as api from '../../api'
 import { fetchSpecies } from '../pokemonSpecies/operations';
+import { matchPokemonForm } from '../utils';
 
 export const fetchPokemonList = (type = null) => async (dispatch) => {
   dispatch(fetchPokemonListRequest());
@@ -31,15 +33,17 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
 
   dispatch(fetchPokemonOneRequest(name));
   const pokemon = await api.getPokemonByName(name);
-  const form = await api.getPokemonFormByName(name);
+  const needsForm = pokemon.name !== pokemon.species.name;
+  const hasForm = pokemon.forms.find(matchPokemonForm(name));
+  const form = hasForm && needsForm ? await api.getPokemonFormByName(name) : null;
 
   await fetchSpecies(pokemon.species.name)(dispatch, getState);
 
   dispatch(
     fetchPokemonOneSuccess({
       ...pokemon,
-      sprites: form.sprites,
-      names: form.names,
+      sprites: get(form, 'sprites', pokemon.sprites),
+      names: get(form, 'names', []),
     })
   );
 }
