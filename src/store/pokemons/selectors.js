@@ -44,5 +44,9 @@ export const getPokemonWeight = (state, name) => getPokemonByName(state, name).w
 export const getPokemonNationalNumber = (state, name) => {
   const { nationalPokedexNumber } = getPokemonByName(state, name);
 
+  if (!nationalPokedexNumber) {
+    return null;
+  }
+
   return padStat(nationalPokedexNumber, 3, 0);
 }

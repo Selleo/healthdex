@@ -9,8 +9,8 @@ export function PokemonNationalNumber(props) {
 
   return (
     <span>
-      National &#8470;{' '}
-      <strong>{pokemonNationalNumber}</strong>
+      National &#8470;:{' '}
+      <strong>{pokemonNationalNumber || 'unknown'}</strong>
     </span>
   )
 }

@@ -1,4 +1,5 @@
-import pick from 'lodash/pick'
+import pick from 'lodash/pick';
+import get from 'lodash/get';
 import * as actionTypes from './actionTypes';
 
 const initialState = {
@@ -50,7 +51,7 @@ export function reducer(state = initialState, action) {
             translatedGenus: pokemon.genera.find(matchEnglishLanguage).genus,
             translatedName: pokemon.names.find(matchEnglishLanguage).name,
             moves: pokemon.moves.map(moveData => moveData.move.name),
-            nationalPokedexNumber: pokemon.pokedex_numbers.find(matchNationalPokedex).entry_number,
+            nationalPokedexNumber: get(pokemon.pokedex_numbers.find(matchNationalPokedex), 'entry_number', null),
           },
         }
       };
