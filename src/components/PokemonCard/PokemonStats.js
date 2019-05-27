@@ -7,9 +7,18 @@ import { withPokemonName } from '../../hocs/withPokemonName';
 
 export function PokemonStats(props) {
   const { pokemonStats } = props;
+  const graphClassName = (width) => {
+    let className = 'pokemon-card__graph';
+    if(width < 33) {
+      className += ' -low'
+    } else if (width > 67) {
+      className += ' -high'
+    }
+   return className;
+  }
 
   return (
-    <table className='table' cellSpacing='0'>
+    <table className='pokemon-card__table' cellSpacing='0'>
       <tbody>
         {pokemonStats.map(statData => (
           <tr key={statData.stat.name}>
@@ -22,7 +31,9 @@ export function PokemonStats(props) {
               {statData.base_stat}
             </td>
             <td>
-              <meter value={statData.base_stat} low="33" high="67" max="100"></meter>
+              <div className='pokemon-card__graph-wrapper'>
+                <div className={graphClassName(statData.base_stat / 150 * 100)} style={{width: statData.base_stat / 150 * 100 + '%'}}></div>
+              </div>
             </td>
           </tr>
         ))}

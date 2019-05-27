@@ -26,9 +26,12 @@
     background-color: $brand-primary
     color: $color-white
 
-  &.-success
-    background-color: $brand-success
-    color: $color-white
+  &.-default
+    background-color: $color-gray-light
+    color: $color-gray-dark
+
+    &:hover
+      background-color: $color-gray-lighter
 
   &.-link
     color: $brand-primary
@@ -39,14 +42,6 @@
   &.-outline
     background-color: transparent
     box-shadow: inset 0 0 0 1px $color-gray
-    color: $color-gray-dark
-
-    &:hover
-      background-color: $color-gray-light
-
-  &.-outline-primary
-    background-color: transparent
-    box-shadow: inset 0 0 0 1px $brand-primary
     color: $color-gray-dark
 
     &:hover

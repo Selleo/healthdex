@@ -5,7 +5,7 @@ export function PokemonTypeButton(props) {
 
   return (
     <button
-      className={'btn ' + (isActive ? '-primary' : '-outline')}
+      className={'btn ' + (isActive ? '-primary' : '-default')}
       type="button"
       onClick={() => onClick(type)}
     >
