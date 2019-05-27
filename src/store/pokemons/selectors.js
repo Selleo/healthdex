@@ -1,4 +1,5 @@
-import get from 'lodash/get'
+import get from 'lodash/get';
+import intersection from 'lodash/intersection';
 import { createSelector } from 'reselect';
 import fallbackAvatar from '../../images/placeholder.png';
 
@@ -11,8 +12,9 @@ export const getPokemonListSize = (state) => state.pokemons.list.length;
 export const isPokemonListLoading = (state) => state.pokemons.loading;
 
 export const getLoadedPokemonList = createSelector(
+  getPokemonList,
   getPokemonMap,
-  (byName) => Object.keys(byName),
+  (list, byName) => intersection(Object.keys(byName), list),
 );
 
 export const getLoadedPokemonListSize = state => getLoadedPokemonList(state).length;
