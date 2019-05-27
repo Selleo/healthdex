@@ -1,17 +1,24 @@
 import { getPokemonList, hasPokemon } from './selectors';
-import * as actions from './actions';
+import {
+  fetchPokemonListRequest,
+  fetchPokemonListSuccess,
+  fetchPokemonListFailure,
+  fetchPokemonOneRequest,
+  fetchPokemonOneSuccess,
+} from './actions';
 import * as api from '../../api'
+import { fetchSpecies } from '../pokemonSpecies/operations';
 
 export const fetchPokemonList = (type = null) => async (dispatch) => {
-  dispatch(actions.fetchPokemonListRequest());
+  dispatch(fetchPokemonListRequest());
 
   try {
     const request = type ? api.getPokemonListByType(type) : api.getPokemonList();
     const pokemons = await request;
 
-    dispatch(actions.fetchPokemonListSuccess(pokemons))
+    dispatch(fetchPokemonListSuccess(pokemons))
   } catch (error) {
-    dispatch(actions.fetchPokemonListFailure());
+    dispatch(fetchPokemonListFailure());
   }
 }
 
@@ -22,23 +29,19 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
     return;
   }
 
-  dispatch(actions.fetchPokemonOneRequest(name));
-
+  dispatch(fetchPokemonOneRequest(name));
   const pokemon = await api.getPokemonByName(name)
-  const species = await api.getPokemonSpeciesByName(pokemon.species.name)
-  const payload = {
-    ...pokemon,
-    ...species,
-  };
 
-  dispatch(actions.fetchPokemonOneSuccess(payload));
+  await fetchSpecies(pokemon.species.name)(dispatch, getState);
+
+  dispatch(fetchPokemonOneSuccess(pokemon));
 }
 
 export const fetchMissingPokemons = (offset, limit) => async (dispatch, getState) => {
   const state = getState();
   const list = getPokemonList(state);
 
-  list.slice(offset, offset + limit).forEach(async name => {
+  list.slice(offset, offset + limit).forEach(name => {
     fetchPokemon(name)(dispatch, getState);
   })
 }

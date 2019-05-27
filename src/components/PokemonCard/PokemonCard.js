@@ -38,7 +38,7 @@ export const PokemonCard = memo(function PokemonCard(props) {
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  isLoading: getIsPokemonLoading(state, ownProps.pokemonName)
+  isLoading: getIsPokemonLoading(state, ownProps.pokemonName),
 })
 
 export const PokemonCardContainer = connect(mapStateToProps)(PokemonCard);

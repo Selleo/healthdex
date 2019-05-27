@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import flowRight from 'lodash/flowRight'
-import { getPokemonTranslatedName } from '../../store/pokemons/selectors';
 import { withPokemonName } from '../../hocs/withPokemonName';
+import { getPokemonTranslatedName } from '../../store/pokemonSpecies/selectors';
 
 export function PokemonName(props) {
   const { translatedPokemonName } = props;

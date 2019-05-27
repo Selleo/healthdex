@@ -1,5 +1,4 @@
 import pick from 'lodash/pick';
-import get from 'lodash/get';
 import * as actionTypes from './actionTypes';
 
 const initialState = {
@@ -8,10 +7,6 @@ const initialState = {
   list: [],
   byName: {},
 }
-
-const matchEnglishLanguage = (nameData) => nameData.language.name === 'en';
-
-const matchNationalPokedex = (pokedexData) => pokedexData.pokedex.name === 'national'
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -51,7 +46,6 @@ export function reducer(state = initialState, action) {
         'stats',
         'name',
         'sprites',
-        'evolution_chain',
       ];
 
       return {
@@ -60,11 +54,9 @@ export function reducer(state = initialState, action) {
           ...state.byName,
           [pokemon.name]: {
             ...pick(pokemon, pickKeys),
+            species: pokemon.species.name,
             types: pokemon.types.map(typeData => typeData.type.name),
-            translatedGenus: pokemon.genera.find(matchEnglishLanguage).genus,
-            translatedName: pokemon.names.find(matchEnglishLanguage).name,
             moves: pokemon.moves.map(moveData => moveData.move.name),
-            nationalPokedexNumber: get(pokemon.pokedex_numbers.find(matchNationalPokedex), 'entry_number', null),
           },
         }
       };
