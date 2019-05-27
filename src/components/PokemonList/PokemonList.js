@@ -29,7 +29,7 @@ export function PokemonList(props) {
       pageStart={0}
       threshold={400}
       hasMore={hasMore}
-      loadMore={() => onLoadMore(loadedPokemonCount, limit)}
+      loadMore={() => onLoadMore(limit)}
       loader={loader}
     >
       {pokemonList.map(name => (

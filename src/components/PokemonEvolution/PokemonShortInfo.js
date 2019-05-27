@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchPokemon } from '../../store/pokemons/operations';
+import { fetchPokemonsFromSpecies } from '../../store/pokemons/operations';
 import { isPokemonLoading, hasPokemon } from '../../store/pokemons/selectors';
 import { usePokemonFetch } from '../../hooks/usePokemonFetch';
 import { PokemonNameContainer } from './PokemonName';
@@ -35,7 +35,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = {
-  onPokemonFetch: fetchPokemon,
+  onPokemonFetch: fetchPokemonsFromSpecies,
 }
 
 export const PokemonShortInfoContainer = connect(mapStateToProps, mapDispatchToProps)(PokemonShortInfo)

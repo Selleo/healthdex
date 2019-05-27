@@ -24,6 +24,7 @@ export function reducer(state = initialState, action) {
             translatedGenus: species.genera.find(matchEnglishLanguage).genus,
             translatedName: species.names.find(matchEnglishLanguage).name,
             nationalPokedexNumber: get(species.pokedex_numbers.find(matchNationalPokedex), 'entry_number', null),
+            varieties: species.varieties.map(variation => variation.pokemon.name),
           },
         },
       };

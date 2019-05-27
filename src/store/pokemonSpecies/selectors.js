@@ -3,9 +3,11 @@ import { getPokemonByName } from '../pokemons/selectors';
 
 export const hasSpecies = (state, name) => state.pokemonSpecies.byName.hasOwnProperty(name);
 
+export const getSpeciesByName = (state, speciesName) => state.pokemonSpecies.byName[speciesName];
+
 export const getSpeciesByPokemon = (state, name) => {
   const pokemon = getPokemonByName(state, name);
-  return state.pokemonSpecies.byName[pokemon.species];
+  return getSpeciesByName(state, pokemon.species);
 };
 
 export const getPokemonNationalNumber = (state, name) => {
@@ -28,3 +30,5 @@ export const getPokemonTranslatedName = (state, name) => {
 };
 
 export const getPokemonEvolutionChain = (state, name) => getSpeciesByPokemon(state, name).evolutionChainId;
+
+export const getSpeciesVariaties = (state, speciesName) => getSpeciesByName(state, speciesName).varieties;

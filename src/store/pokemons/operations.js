@@ -1,5 +1,6 @@
-import get from 'lodash/get'
-import { getPokemonList, hasPokemon } from './selectors';
+import get from 'lodash/get';
+import difference from 'lodash/difference';
+import { getPokemonList, hasPokemon, getLoadedPokemonList } from './selectors';
 import {
   fetchPokemonListRequest,
   fetchPokemonListSuccess,
@@ -49,11 +50,22 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
   );
 }
 
-export const fetchMissingPokemons = (offset, limit) => async (dispatch, getState) => {
-  const state = getState();
-  const list = getPokemonList(state);
+export const fetchPokemonsFromSpecies = (speciesName) => async (dispatch, getState) => {
+  const species = await fetchSpecies(speciesName)(dispatch, getState);
 
-  list.slice(offset, offset + limit).forEach(name => {
+  species.varieties.forEach(pokemonName => {
+    fetchPokemon(pokemonName)(dispatch, getState);
+  })
+}
+
+export const fetchMissingPokemons = (limit) => async (dispatch, getState) => {
+  const state = getState();
+  const loadedPokemon = getLoadedPokemonList(state);
+  const allPokemon = getPokemonList(state);
+
+  const list = difference(allPokemon, loadedPokemon).slice(0, limit);
+
+  list.forEach(name => {
     fetchPokemon(name)(dispatch, getState);
   })
 }
