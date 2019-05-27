@@ -1,7 +1,6 @@
 import padStat from 'lodash/padStart'
 import { getPokemonByName } from '../pokemons/selectors';
 
-
 export const hasSpecies = (state, name) => state.pokemonSpecies.byName.hasOwnProperty(name);
 
 export const getSpeciesByPokemon = (state, name) => {
@@ -27,3 +26,5 @@ export const getPokemonTranslatedName = (state, name) => {
 
   return pokemon.translatedName || species.translatedName;
 };
+
+export const getPokemonEvolutionChain = (state, name) => getSpeciesByPokemon(state, name).evolutionChainId;

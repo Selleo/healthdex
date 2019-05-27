@@ -1,4 +1,6 @@
+import get from 'lodash/get'
 import { createSelector } from 'reselect';
+import fallbackAvatar from '../../images/placeholder.png';
 
 export const getPokemonMap = (state) => state.pokemons.byName;
 
@@ -18,15 +20,17 @@ export const getLoadedPokemonListSize = state => getLoadedPokemonList(state).len
 
 export const hasPokemon = (state, name) => state.pokemons.byName.hasOwnProperty(name);
 
-export const getIsPokemonLoading = (state, name) => !!state.pokemons.byName[name].loading;
+export const isPokemonLoading = (state, name) => get(state, ['pokemons', 'byName', name, 'loading']);
 
 export const getPokemonByName = (state, name) => state.pokemons.byName[name];
 
 export const getPokemonAvatar = (state, name) => {
   const { sprites } = getPokemonByName(state, name);
 
-  return sprites.front_default;
+  return sprites.front_default || fallbackAvatar;
 };
+
+export const getPokemonTypes = (state, name) => getPokemonByName(state, name).types;
 
 export const getPokemonStats = (state, name) => getPokemonByName(state, name).stats;
 

@@ -8,7 +8,7 @@ export const getPokemonTypesList = async () => {
 }
 
 export const getPokemonList = async () => {
-  const { results } = await client.getPokemonsList({ limit: -1 });
+  const { results } = await client.getPokemonSpeciesList({ limit: -1 });
   return results;
 }
 
@@ -27,4 +27,9 @@ export const getPokemonSpeciesByName = async (speciesName) => {
 
 export const getPokemonFormByName = async (formName) => {
   return await client.getPokemonFormByName(formName);
+}
+
+export const getPokemonEvolutionById = async (evolutionId) => {
+  const { chain } = await client.getEvolutionChainById(evolutionId);
+  return chain;
 }

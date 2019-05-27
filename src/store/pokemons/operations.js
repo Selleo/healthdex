@@ -32,6 +32,7 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
   }
 
   dispatch(fetchPokemonOneRequest(name));
+
   const pokemon = await api.getPokemonByName(name);
   const needsForm = pokemon.name !== pokemon.species.name;
   const hasForm = pokemon.forms.find(matchPokemonForm(name));

@@ -1,8 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import flowRight from 'lodash/flowRight'
 import { withPokemonName } from '../../hocs/withPokemonName';
-import { getPokemonTranslatedName } from '../../store/pokemonSpecies/selectors';
+import { withTranslatedPokemonName } from '../../hocs/withTranslatedPokemonName';
 
 export function PokemonName(props) {
   const { translatedPokemonName } = props;
@@ -15,11 +14,7 @@ export function PokemonName(props) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  translatedPokemonName: getPokemonTranslatedName(state, ownProps.pokemonName)
-});
-
 export const PokemonNameContainer = flowRight([
   withPokemonName,
-  connect(mapStateToProps)
+  withTranslatedPokemonName,
 ])(PokemonName)
