@@ -17,8 +17,6 @@ export function PokemonList(props) {
     onLoadMore,
   } = props;
 
-  const containerRef = useRef();
-
   const hasMore = !isLoading && loadedPokemonCount !== totalPokemonCount;
   const loader = <Loader key={loadedPokemonCount} />;
 
@@ -27,21 +25,17 @@ export function PokemonList(props) {
   }
 
   return (
-    <div className="pokemon-cards-list" ref={containerRef}>
-      <InfiniteScroll
-        pageStart={0}
-        threshold={400}
-        hasMore={hasMore}
-        loadMore={() => onLoadMore(loadedPokemonCount, limit)}
-        loader={loader}
-        useWindow={false}
-        getScrollParent={() => containerRef.current}
-      >
-        {pokemonList.map(name => (
-          <PokemonCardContainer key={name} pokemonName={name} />
-        ))}
-      </InfiniteScroll>
-    </div>
+    <InfiniteScroll
+      pageStart={0}
+      threshold={400}
+      hasMore={hasMore}
+      loadMore={() => onLoadMore(loadedPokemonCount, limit)}
+      loader={loader}
+    >
+      {pokemonList.map(name => (
+        <PokemonCardContainer key={name} pokemonName={name} />
+      ))}
+    </InfiniteScroll>
   )
 }
 
