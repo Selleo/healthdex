@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller'
 import { getLoadedPokemonList, getLoadedPokemonListSize, getPokemonListSize, isPokemonListLoading } from '../../store/pokemons/selectors';
@@ -16,6 +16,8 @@ export function PokemonList(props) {
     onLoadMore,
   } = props;
 
+  const containerRef = useRef();
+
   const hasMore = !isLoading && loadedPokemonCount !== totalPokemonCount;
 
   const handleLoadMore = useCallback(() => onLoadMore(loadedPokemonCount, limit), [onLoadMore, loadedPokemonCount]);
@@ -27,18 +29,21 @@ export function PokemonList(props) {
   }
 
   return (
-    <InfiniteScroll
-      className='pokemon-cards-list'
-      pageStart={0}
-      threshold={250}
-      hasMore={hasMore}
-      loadMore={handleLoadMore}
-      loader={loader}
-    >
-      {pokemonList.map(name => (
-        <PokemonCardContainer key={name} pokemonName={name} />
-      ))}
-    </InfiniteScroll>
+    <div className="pokemon-cards-list" ref={containerRef}>
+      <InfiniteScroll
+        pageStart={0}
+        threshold={50}
+        hasMore={hasMore}
+        loadMore={handleLoadMore}
+        loader={loader}
+        useWindow={false}
+        getScrollParent={() => containerRef.current}
+      >
+        {pokemonList.map(name => (
+          <PokemonCardContainer key={name} pokemonName={name} />
+        ))}
+      </InfiniteScroll>
+    </div>
   )
 }
 
