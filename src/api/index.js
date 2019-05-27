@@ -8,7 +8,7 @@ export const getPokemonTypesList = async () => {
 }
 
 export const getPokemonList = async () => {
-  const { results } = await client.getPokemonSpeciesList({ limit: -1 });
+  const { results } = await client.getPokemonsList({ limit: -1 });
   return results;
 }
 
