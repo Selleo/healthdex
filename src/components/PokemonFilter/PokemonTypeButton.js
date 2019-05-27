@@ -5,8 +5,8 @@ export function PokemonTypeButton(props) {
 
   return (
     <button
+      className={'btn ' + (isActive ? '-primary' : '-outline')}
       type="button"
-      style={{ borderColor: isActive ? 'red' : undefined }}
       onClick={() => onClick(type)}
     >
       {label}

@@ -8,10 +8,10 @@ export function PokemonNationalNumber(props) {
   const { pokemonNationalNumber } = props;
 
   return (
-    <span>
+    <p>
       National &#8470;:{' '}
       <strong>{pokemonNationalNumber || 'unknown'}</strong>
-    </span>
+    </p>
   )
 }
 

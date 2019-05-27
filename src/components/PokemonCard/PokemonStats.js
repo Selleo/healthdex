@@ -9,7 +9,7 @@ export function PokemonStats(props) {
   const { pokemonStats } = props;
 
   return (
-    <table>
+    <table className='table' cellSpacing='0'>
       <tbody>
         {pokemonStats.map(statData => (
           <tr key={statData.stat.name}>
@@ -20,6 +20,9 @@ export function PokemonStats(props) {
             </td>
             <td>
               {statData.base_stat}
+            </td>
+            <td>
+              <meter value={statData.base_stat} low="33" high="67" max="100"></meter>
             </td>
           </tr>
         ))}

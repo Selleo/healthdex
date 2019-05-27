@@ -1,0 +1,68 @@
+//----- fonts sizes and line-heights -----------------------------------------------------------------------------------
+$font-size-xxl:                   72px
+$font-size-xl:                    24px
+$font-size-lg:                    20px
+$font-size-base:                  16px
+$font-size-sm:                    13px
+$font-size-xs:                    12px
+
+$line-height-base:                1.25
+$line-height-sm:                  1
+$line-height-lg:                  1.5
+
+//----- spacings (margins/paddings) ------------------------------------------------------------------------------------
+$m-base:                          20px
+$m-xs:                            $m-base / 4
+$m-sm:                            $m-base / 2
+$m-md:                            $m-base / 4 * 3
+$m-lg:                            $m-base * 2
+$m-xl:                            $m-base * 3
+
+//----- border radiuses ------------------------------------------------------------------------------------------------
+$border-radius-base:              $m-base
+$border-radius-sm:                3px
+$border-radius-lg:                $m-lg
+
+//----- breakpoints ----------------------------------------------------------------------------------------------------
+$grid-breakpoints:                (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+
+$grid-columns:                    12
+$grid-gutter-width:               $m-base
+
+$container:                       map-get($grid-breakpoints, xl)
+
+//----- colors ---------------------------------------------------------------------------------------------------------
+$brand-primary:                   #2461bd
+$brand-success:                   #48bd66
+$brand-warning:                   #ffd200
+$brand-danger:                    #e62a2a
+$brand-info:                      #5bc0de
+
+$color-black:                     #04080c
+$color-gray-dark:                 hsl(36, 5%, 38%)
+$color-gray:                      hsl(36, 5%, 62%)
+$color-gray-light:                hsl(36, 5%, 75%)
+$color-white:                     #ffffff
+
+$placeholder-color:               $color-gray
+
+//----- fonts ----------------------------------------------------------------------------------------------------------
+$font-family-body:                'Rubik'
+$font-stack-body:                 $font-family-body, serif
+
+$font-weight-regular:             400
+$font-weight-bold:                600
+
+$icon-class:                      'icon--'
+$icon-size:                       20px
+
+//----- transitions ----------------------------------------------------------------------------------------------------
+$transition-duration:             .3s
+$transition-function:              ease-in-out
+
+//----- z-indexes ------------------------------------------------------------------------------------------------------
+$z-negative:                      -1
+$z-low:                           100
+$z-middle:                        200
+$z-high:                          300
+$z-higher:                        400

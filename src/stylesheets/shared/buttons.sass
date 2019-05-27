@@ -1,0 +1,53 @@
+.btn
+  +animate(background-color, color)
+  border: none
+    radius: $border-radius-sm
+  cursor: pointer
+  display: inline-block
+  font:
+    family: $font-stack-body
+    size: $font-size-sm
+    weight: $font-weight-regular
+  letter-spacing: .5px
+  line-height: $line-height-base
+  padding: $m-xs $m-base
+  text-decoration: none
+
+  &:focus
+    outline: none
+
+  &:hover
+    +media-touch-devices
+      background-color: inherit !important
+      color: inherit !important
+
+  //----- color versions -----------------------------------------------------------------------------------------------
+  &.-primary
+    background-color: $brand-primary
+    color: $color-white
+
+  &.-success
+    background-color: $brand-success
+    color: $color-white
+
+  &.-link
+    color: $brand-primary
+
+    &:hover
+      background-color: $color-gray-light
+
+  &.-outline
+    background-color: transparent
+    box-shadow: inset 0 0 0 1px $color-gray
+    color: $color-gray-dark
+
+    &:hover
+      background-color: $color-gray-light
+
+  &.-outline-primary
+    background-color: transparent
+    box-shadow: inset 0 0 0 1px $brand-primary
+    color: $color-gray-dark
+
+    &:hover
+      background-color: $color-gray-light

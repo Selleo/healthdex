@@ -1,0 +1,48 @@
+@keyframes loading
+  50%
+    transform: translateY(-30%)
+  0%,
+  100%
+    transform: translateY(0)
+
+$size: 50px
+
+.pokeball
+  animation: loading both infinite 1s
+  background: linear-gradient(to bottom, #EEEEEE 0%,#FFFFFF 100%)
+  border-radius: $size
+  border: solid ($size/25) black
+  height: $size
+  margin: $m-xl auto
+  position: relative
+  width: $size
+
+  &:before,
+  &:after
+    content: ''
+    display: block
+
+  &,
+  &:before,
+  &:after
+    box-sizing: content-box
+
+  &:before 
+    background: linear-gradient(to bottom, #d10000 0%,#ff0000 50%)
+    border-bottom: solid ($size/25) black
+    border-radius: ($size/2) ($size/2) 0 0
+    height: ($size/2) -($size/25/2)
+    width: $size
+
+  &:after 
+    background: linear-gradient(to bottom, #fff 0%,#ccc 100%)
+    border-radius: 50%
+    box-shadow: 0 0 0 ($size/50) black, 0 0 0 ($size/25) #ddd, 0 0 0 ($size/14) black, 0 0 ($size/10) ($size/17) rgba(0,0,0,0.4)
+    content: ""
+    height: $size/5
+    left: 50%
+    position: absolute
+    top: 50%
+    transform: translate(-50%,-50%)
+    width: $size/5
+

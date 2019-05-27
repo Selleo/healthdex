@@ -8,14 +8,13 @@ export const PokemonFilter = memo(function PokemonFilter(props) {
   const types = usePokemonTypes();
 
   return (
-    <>
+    <div className='pokemon-filter'>
       <PokemonTypeButton
         type={null}
         onClick={onFilterChange}
-        label="Reset"
+        label="All"
         isActive={false}
       />
-      &nbsp;&bull;&nbsp;
       {types.map(type => (
         <PokemonTypeButton
           key={type}
@@ -25,6 +24,6 @@ export const PokemonFilter = memo(function PokemonFilter(props) {
           isActive={type === selectedFilter}
         />
       ))}
-    </>
+    </div>
   )
 });

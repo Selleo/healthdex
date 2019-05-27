@@ -8,10 +8,10 @@ export function PokemonName(props) {
   const { translatedPokemonName } = props;
 
   return (
-    <span>
+    <p>
       Name:{' '}
       <strong>{translatedPokemonName}</strong>
-    </span>
+    </p>
   )
 }
 

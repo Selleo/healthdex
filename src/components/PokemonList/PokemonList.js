@@ -20,7 +20,7 @@ export function PokemonList(props) {
 
   const handleLoadMore = useCallback(() => onLoadMore(loadedPokemonCount, limit), [onLoadMore, loadedPokemonCount]);
 
-  const loader = <h1 key={loadedPokemonCount}>Loading...</h1>;
+  const loader = <div key={loadedPokemonCount} className='pokeball' />;
 
   if (isLoading) {
     return loader;
@@ -28,6 +28,7 @@ export function PokemonList(props) {
 
   return (
     <InfiniteScroll
+      className='pokemon-cards-list'
       pageStart={0}
       threshold={250}
       hasMore={hasMore}
