@@ -1,5 +1,7 @@
 import pick from 'lodash/pick';
+import get from 'lodash/get';
 import * as actionTypes from './actionTypes';
+import { matchEnglishLanguage } from '../utils';
 
 const initialState = {
   loading: false,
@@ -57,6 +59,7 @@ export function reducer(state = initialState, action) {
             species: pokemon.species.name,
             types: pokemon.types.map(typeData => typeData.type.name),
             moves: pokemon.moves.map(moveData => moveData.move.name),
+            translatedName: get(pokemon.names.find(matchEnglishLanguage), 'name'),
           },
         }
       };

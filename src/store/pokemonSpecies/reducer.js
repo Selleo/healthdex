@@ -1,14 +1,11 @@
 import pick from 'lodash/pick';
 import get from 'lodash/get';
 import * as actionTypes from './acionTypes';
+import { matchEnglishLanguage, matchNationalPokedex } from '../utils';
 
 const initialState = {
   byName: {},
 }
-
-const matchEnglishLanguage = (nameData) => nameData.language.name === 'en';
-
-const matchNationalPokedex = (pokedexData) => pokedexData.pokedex.name === 'national'
 
 export function reducer(state = initialState, action) {
   switch (action.type) {

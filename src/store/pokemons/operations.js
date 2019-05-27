@@ -30,11 +30,18 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
   }
 
   dispatch(fetchPokemonOneRequest(name));
-  const pokemon = await api.getPokemonByName(name)
+  const pokemon = await api.getPokemonByName(name);
+  const form = await api.getPokemonFormByName(name);
 
   await fetchSpecies(pokemon.species.name)(dispatch, getState);
 
-  dispatch(fetchPokemonOneSuccess(pokemon));
+  dispatch(
+    fetchPokemonOneSuccess({
+      ...pokemon,
+      sprites: form.sprites,
+      names: form.names,
+    })
+  );
 }
 
 export const fetchMissingPokemons = (offset, limit) => async (dispatch, getState) => {

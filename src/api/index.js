@@ -12,15 +12,19 @@ export const getPokemonList = async () => {
   return results;
 }
 
-export const getPokemonListByType = async (type) => {
-  const { pokemon } = await client.getTypeByName(type);
+export const getPokemonListByType = async (pokemonType) => {
+  const { pokemon } = await client.getTypeByName(pokemonType);
   return pokemon.map(pokemonData => pokemonData.pokemon);
 }
 
-export const getPokemonByName = async (name) => {
-  return await client.getPokemonByName(name);
+export const getPokemonByName = async (pokemonName) => {
+  return await client.getPokemonByName(pokemonName);
 }
 
-export const getPokemonSpeciesByName = async (name) => {
-  return await client.getPokemonSpeciesByName(name);
+export const getPokemonSpeciesByName = async (speciesName) => {
+  return await client.getPokemonSpeciesByName(speciesName);
+}
+
+export const getPokemonFormByName = async (formName) => {
+  return await client.getPokemonFormByName(formName);
 }
