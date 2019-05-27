@@ -31,6 +31,19 @@ export function reducer(state = initialState, action) {
       }
     }
 
+    case actionTypes.FETCH_POKEMON_ONE_REQUEST: {
+      const { payload: name } = action;
+      return {
+        ...state,
+        byName: {
+          ...state.byName,
+          [name]: {
+            loading: true,
+          }
+        }
+      };
+    }
+
     case actionTypes.FETCH_POKEMON_ONE_SUCCESS: {
       const { payload: pokemon } = action;
       const pickKeys = [

@@ -1,11 +1,12 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useRef } from 'react'
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller'
 import { getLoadedPokemonList, getLoadedPokemonListSize, getPokemonListSize, isPokemonListLoading } from '../../store/pokemons/selectors';
 import { fetchMissingPokemons } from '../../store/pokemons/operations';
 import { PokemonCardContainer } from '../PokemonCard';
+import { Loader } from '../Loader';
 
-const limit = 10;
+const limit = 5;
 
 export function PokemonList(props) {
   const {
@@ -19,10 +20,7 @@ export function PokemonList(props) {
   const containerRef = useRef();
 
   const hasMore = !isLoading && loadedPokemonCount !== totalPokemonCount;
-
-  const handleLoadMore = useCallback(() => onLoadMore(loadedPokemonCount, limit), [onLoadMore, loadedPokemonCount]);
-
-  const loader = <div key={loadedPokemonCount} className='pokeball' />;
+  const loader = <Loader key={loadedPokemonCount} />;
 
   if (isLoading) {
     return loader;
@@ -32,9 +30,9 @@ export function PokemonList(props) {
     <div className="pokemon-cards-list" ref={containerRef}>
       <InfiniteScroll
         pageStart={0}
-        threshold={50}
+        threshold={400}
         hasMore={hasMore}
-        loadMore={handleLoadMore}
+        loadMore={() => onLoadMore(loadedPokemonCount, limit)}
         loader={loader}
         useWindow={false}
         getScrollParent={() => containerRef.current}

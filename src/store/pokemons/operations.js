@@ -1,6 +1,6 @@
+import { getPokemonList, hasPokemon } from './selectors';
 import * as actions from './actions';
 import * as api from '../../api'
-import { getPokemonList, hasPokemon } from './selectors';
 
 export const fetchPokemonList = (type = null) => async (dispatch) => {
   dispatch(actions.fetchPokemonListRequest());
@@ -22,11 +22,10 @@ export const fetchPokemon = (name) => async (dispatch, getState) => {
     return;
   }
 
-  const [pokemon, species] = await Promise.all([
-    api.getPokemonByName(name),
-    api.getPokemonSpeciesByName(name),
-  ])
+  dispatch(actions.fetchPokemonOneRequest(name));
 
+  const pokemon = await api.getPokemonByName(name)
+  const species = await api.getPokemonSpeciesByName(pokemon.species.name)
   const payload = {
     ...pokemon,
     ...species,

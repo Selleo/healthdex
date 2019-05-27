@@ -19,6 +19,8 @@ export const getLoadedPokemonListSize = state => getLoadedPokemonList(state).len
 
 export const hasPokemon = (state, name) => state.pokemons.byName.hasOwnProperty(name);
 
+export const getIsPokemonLoading = (state, name) => !!state.pokemons.byName[name].loading;
+
 export const getPokemonByName = (state, name) => state.pokemons.byName[name];
 
 export const getPokemonAvatar = (state, name) => {

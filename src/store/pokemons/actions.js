@@ -13,8 +13,9 @@ export const fetchPokemonListFailure = () => ({
   type: actionTypes.FETCH_POKEMON_LIST_FAILURE,
 })
 
-export const fetchPokemonOneRequest = () => ({
+export const fetchPokemonOneRequest = (payload) => ({
   type: actionTypes.FETCH_POKEMON_ONE_REQUEST,
+  payload,
 })
 
 export const fetchPokemonOneSuccess = (payload) => ({
@@ -22,6 +23,8 @@ export const fetchPokemonOneSuccess = (payload) => ({
   payload,
 })
 
-export const fetchPokemonOneFailure = () => ({
-  type: actionTypes.FETCH_POKEMON_ONE_FAILURE
+export const fetchPokemonOneFailure = (payload) => ({
+  type: actionTypes.FETCH_POKEMON_ONE_FAILURE,
+  error: true,
+  payload,
 })
