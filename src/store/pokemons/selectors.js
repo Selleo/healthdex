@@ -11,9 +11,8 @@ export const getPokemonListSize = (state) => state.pokemons.list.length;
 export const isPokemonListLoading = (state) => state.pokemons.loading;
 
 export const getLoadedPokemonList = createSelector(
-  getPokemonList,
   getPokemonMap,
-  (list, byName) => list.filter(name => byName.hasOwnProperty(name))
+  (byName) => Object.keys(byName),
 );
 
 export const getLoadedPokemonListSize = state => getLoadedPokemonList(state).length;
