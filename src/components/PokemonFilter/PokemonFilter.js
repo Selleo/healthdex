@@ -13,7 +13,7 @@ export const PokemonFilter = memo(function PokemonFilter(props) {
         type={null}
         onClick={onFilterChange}
         label="All"
-        isActive={false}
+        isActive={selectedFilter === null}
       />
       {types.map(type => (
         <PokemonTypeButton
