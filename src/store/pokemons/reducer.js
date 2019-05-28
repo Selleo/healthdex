@@ -44,7 +44,6 @@ export function reducer(state = initialState, action) {
     case actionTypes.FETCH_POKEMON_ONE_SUCCESS: {
       const { payload: pokemon } = action;
       const pickKeys = [
-        'abilities',
         'stats',
         'name',
         'sprites',
@@ -56,6 +55,7 @@ export function reducer(state = initialState, action) {
           ...state.byName,
           [pokemon.name]: {
             ...pick(pokemon, pickKeys),
+            abilities: pokemon.abilities.map(abilityData => abilityData.ability.name),
             species: pokemon.species.name,
             types: pokemon.types.map(typeData => typeData.type.name),
             moves: pokemon.moves.map(moveData => moveData.move.name),

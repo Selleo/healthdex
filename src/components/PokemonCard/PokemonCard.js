@@ -10,6 +10,7 @@ import { PokemonGenusContainer } from './PokemonGenus';
 import { PokemonTypesContainer } from './PokemonTypes';
 import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
 import { PokemonEvolutionContainer } from '../PokemonEvolution';
+import { PokemonAbilitiesContainer } from './PokemonAbilities';
 
 export const PokemonCard = memo(function PokemonCard(props) {
   const { pokemonName, pokemonExists, isLoading } = props;
@@ -32,6 +33,7 @@ export const PokemonCard = memo(function PokemonCard(props) {
           <PokemonNameContainer />
           <PokemonGenusContainer />
           <PokemonTypesContainer />
+          <PokemonAbilitiesContainer />
         </div>
         <PokemonStatsContainer />
         <button className="btn -primary" type="button" onClick={() => setDetails(status => !status)}>
