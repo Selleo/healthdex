@@ -11,6 +11,8 @@ import { PokemonTypesContainer } from './PokemonTypes';
 import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
 import { PokemonEvolutionContainer } from '../PokemonEvolution';
 import { PokemonAbilitiesContainer } from './PokemonAbilities';
+import { PokemonHeightContainer } from './PokemonHeight';
+import { PokemonWeightContainer } from './PokemonWeight';
 
 export const PokemonCard = memo(function PokemonCard(props) {
   const { pokemonName, pokemonExists, isLoading } = props;
@@ -33,6 +35,8 @@ export const PokemonCard = memo(function PokemonCard(props) {
           <PokemonNameContainer />
           <PokemonGenusContainer />
           <PokemonTypesContainer />
+          <PokemonHeightContainer />
+          <PokemonWeightContainer />
           <PokemonAbilitiesContainer />
         </div>
         <PokemonStatsContainer />

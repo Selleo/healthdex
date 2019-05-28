@@ -47,6 +47,8 @@ export function reducer(state = initialState, action) {
         'stats',
         'name',
         'sprites',
+        'height',
+        'weight',
       ];
 
       return {
