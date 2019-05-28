@@ -19,13 +19,13 @@ describe('Pokedex', () => {
 
     cy.route({
       method: 'GET',
-      url: '/api/v2/type/?limit=0&offset=0',
+      url: '/api/v2/type/?limit=10000&offset=0',
       response: typesListResponse,
     }).as('typesList');
 
     cy.route({
       method: 'GET',
-      url: '/api/v2/pokemon/?limit=0&offset=0',
+      url: '/api/v2/pokemon/?limit=10000&offset=0',
       response: pokemonListResponse,
     }).as('pokemonList');
 
