@@ -13,6 +13,7 @@ import { PokemonEvolutionContainer } from '../PokemonEvolution';
 import { PokemonAbilitiesContainer } from './PokemonAbilities';
 import { PokemonHeightContainer } from './PokemonHeight';
 import { PokemonWeightContainer } from './PokemonWeight';
+import { PokemonMovesContainer } from './PokemonMoves';
 
 export const PokemonCard = memo(function PokemonCard(props) {
   const { pokemonName, pokemonExists, isLoading } = props;
@@ -40,12 +41,16 @@ export const PokemonCard = memo(function PokemonCard(props) {
           <PokemonAbilitiesContainer />
         </div>
         <PokemonStatsContainer />
+
         <button className="btn -primary" type="button" onClick={() => setDetails(status => !status)}>
           Show evolution details
         </button>
 
         {details && (
-          <PokemonEvolutionContainer />
+          <>
+            <PokemonEvolutionContainer />
+            <PokemonMovesContainer />
+          </>
         )}
       </div>
     </PokemonNameContext.Provider>
