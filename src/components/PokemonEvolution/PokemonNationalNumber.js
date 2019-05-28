@@ -5,7 +5,7 @@ export function PokemonNationalNumber(props) {
   const { pokemonNationalNumber } = props;
 
   return (
-    <div>#{pokemonNationalNumber || 'unknown'}</div>
+    <div className='evolution__id'>#{pokemonNationalNumber || 'unknown'}</div>
   )
 }
 

@@ -1,8 +1,8 @@
 .pokemon-card
   align-items: center
   display: flex
+  flex-wrap: wrap
   padding: $m-sm $m-base
-  min-height: 180px
 
   &:nth-of-type(even)
     background-color: $color-gray-lighter
@@ -19,6 +19,8 @@
     margin: 0 $m-base
 
   &__table
+    margin-right: $m-base
+
     td
       text-align: right
 
@@ -46,5 +48,30 @@
     &.-low
       background-color: $brand-danger
 
+
     &.-high
       background-color: $brand-success
+
+  &__evolution
+    align-items: center
+    display: flex
+    flex: 0 0 100%
+    justify-content: center
+    padding: $m-base
+
+.evolution
+  align-items: center
+  display: flex
+  justify-content: center
+  text-align: center
+
+  &__group
+    margin-left: $m-base
+
+  &__id
+    color: $color-gray
+    margin-top: $m-sm
+
+  &__name
+    font-weight: $font-weight-bold
+    margin: $m-xs 0

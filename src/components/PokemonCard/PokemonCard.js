@@ -4,7 +4,7 @@ import { PokemonNameContext } from '../../contexts/PokemonNameContext';
 import { isPokemonLoading, hasPokemon } from '../../store/pokemons/selectors';
 import { Loader } from '../Loader';
 import { PokemonStatsContainer } from './PokemonStats';
-import { PokemonAvatarContainer } from '../PokemonAvatar';
+import { PokemonAvatarContainer } from './PokemonAvatar';
 import { PokemonNameContainer } from './PokemonName';
 import { PokemonGenusContainer } from './PokemonGenus';
 import { PokemonTypesContainer } from './PokemonTypes';
@@ -26,9 +26,7 @@ export const PokemonCard = memo(function PokemonCard(props) {
   return (
     <PokemonNameContext.Provider value={pokemonName}>
       <div className='pokemon-card'>
-        <div className='pokemon-card__img'>
-          <PokemonAvatarContainer />
-        </div>
+        <PokemonAvatarContainer />
         <div className='pokemon-card__info'>
           <PokemonNationalNumberContainer />
           <PokemonNameContainer />
@@ -36,11 +34,9 @@ export const PokemonCard = memo(function PokemonCard(props) {
           <PokemonTypesContainer />
         </div>
         <PokemonStatsContainer />
-        <div>
-          <button type="button" onClick={() => setDetails(status => !status)}>
-            Show pokemon details
-          </button>
-        </div>
+        <button className="btn -primary" type="button" onClick={() => setDetails(status => !status)}>
+          Show evolution details
+        </button>
 
         {details && (
           <PokemonEvolutionContainer />

@@ -16,17 +16,15 @@ export function PokemonShortInfo(props) {
 
   if (isLoading || !pokemonExists) {
     return (
-      <strong>
-        Loading...
-      </strong>
+      <div className='pokeball' />
     )
   }
 
   return (
     <div>
       <PokemonAvatarContainer pokemonName={pokemonName} />
-      <PokemonNameContainer pokemonName={pokemonName} />
       <PokemonNationalNumberContainer pokemonName={pokemonName} />
+      <PokemonNameContainer pokemonName={pokemonName} />
       <PokemonTypesContainer pokemonName={pokemonName} />
     </div>
   );

@@ -1,0 +1,75 @@
+.pokemon-types
+  display: flex
+  justify-content: center
+
+.pokemon-type
+  font:
+    size: $font-size-sm
+    weight: $font-weight-bold
+  text-transform: uppercase
+
+  & + &
+    &:before
+      background-color: $color-gray
+      border-radius: 50%
+      content: ''
+      display: inline-block
+      height: $m-xs
+      margin-left: $m-xs
+      margin-right: $m-xs
+      vertical-align: middle
+      width: $m-xs
+
+  &.-bug
+    color: #9cb820
+
+  &.-dragon
+    color: #7038f8
+
+  &.-fairy
+    color: #f09ad9
+
+  &.-fire
+    color: #f08030
+
+  &.-ghost
+    color: #705898
+
+  &.-ground
+    color: #e0b668
+
+  &.-normal
+    color: #a8a8a8
+
+  &.-psychic
+    color: #eb2d77
+
+  &.-steel
+    color: #6d8f9c
+
+  &.-dark
+    color: #504843
+
+  &.-electric
+    color: #c09643
+
+  &.-fighting
+    color: #c03028
+
+  &.-flying
+    color: #9096f0
+
+  &.-grass
+    color: #22c02a
+
+  &.-ice
+    color: #98d8d8
+
+  &.-poison
+    color: #a040a0
+
+  &.-rock
+    color: #b8a038
+
+  &.-water
+    color: #6890f0

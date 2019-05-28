@@ -6,7 +6,11 @@ import { withPokemonAvatar } from '../../hocs/withPokemonAvatar';
 export function PokemonAvatar(props) {
   const { pokemonAvatar, pokemonName } = props;
 
-  return <img src={pokemonAvatar} alt={pokemonName} />
+  return (
+    <div className='pokemon-card__img'>
+      <img src={pokemonAvatar} alt={pokemonName} />
+    </div>
+  )
 }
 
 

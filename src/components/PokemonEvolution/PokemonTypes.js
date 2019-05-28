@@ -1,17 +1,14 @@
 import React from 'react';
-import startCase from 'lodash/startCase';
 import { withPokemonTypes } from '../../hocs/withPokemonTypes';
 
 export function PokemonTypes(props) {
   const { pokemonTypes } = props;
 
   return (
-    <div>
-      {pokemonTypes.reduce((prev, type) => [
-        ...prev,
-        ', ',
-        startCase(type),
-      ])}
+    <div className='pokemon-types'>
+      {pokemonTypes.map((type) => (
+        <span className={`pokemon-type -${type}`}>{type}</span>
+      ))}
     </div>
   );
 }

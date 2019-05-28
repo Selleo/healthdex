@@ -10,12 +10,11 @@ import { EvolutionStep } from './EvolutionStep';
 export function PokemonEvolution(props) {
   const evolution = usePokemonEvolution(props.pokemonEvolutionId);
 
-  if (!evolution) {
-    return <Loader />
-  }
-
   return (
-    <EvolutionStep evolution={evolution} />
+    <div className="pokemon-card__evolution">
+      {!evolution && <Loader />}
+      {evolution && <EvolutionStep evolution={evolution} />}
+    </div>
   )
 }
 
