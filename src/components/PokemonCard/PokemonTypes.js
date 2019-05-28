@@ -9,8 +9,8 @@ export function PokemonTypes(props) {
   return (
     <p>
       Type:&nbsp;
-      {pokemonTypes.map((type) => (
-        <span className={`pokemon-type -${type}`}>{type}</span>
+      {pokemonTypes.map(type => (
+        <span key={type} className={`pokemon-type -${type}`}>{type}</span>
       ))}
     </p>
   )
