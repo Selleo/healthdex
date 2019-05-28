@@ -11,7 +11,7 @@ export const EvolutionStep = memo(function EvolutionStep(props) {
   return (
     <div style={style}>
       {isFirstInChain || <>{' '}&raquo;{' '}</>}
-      <PokemonShortInfoContainer pokemonName={name} />
+      <PokemonShortInfoContainer speciesName={name} />
       {evolves_to.map((nextEvolution) => (
         <EvolutionStep key={nextEvolution.species.name} evolution={nextEvolution} />
       ))}

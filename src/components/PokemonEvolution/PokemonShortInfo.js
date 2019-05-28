@@ -6,11 +6,13 @@ import { usePokemonFetch } from '../../hooks/usePokemonFetch';
 import { PokemonNameContainer } from './PokemonName';
 import { PokemonAvatarContainer } from './PokemonAvatar';
 import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
+import { getDefaultSpeciesPokemon } from '../../store/pokemonSpecies/selectors';
+import { PokemonTypesContainer } from './PokemonTypes';
 
 export function PokemonShortInfo(props) {
-  const { pokemonName, isLoading, onPokemonFetch, pokemonExists } = props;
+  const { speciesName, pokemonName, isLoading, onPokemonFetch, pokemonExists } = props;
 
-  usePokemonFetch(pokemonName, onPokemonFetch);
+  usePokemonFetch(speciesName, onPokemonFetch);
 
   if (isLoading || !pokemonExists) {
     return (
@@ -25,14 +27,20 @@ export function PokemonShortInfo(props) {
       <PokemonAvatarContainer pokemonName={pokemonName} />
       <PokemonNameContainer pokemonName={pokemonName} />
       <PokemonNationalNumberContainer pokemonName={pokemonName} />
+      <PokemonTypesContainer pokemonName={pokemonName} />
     </div>
   );
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  isLoading: isPokemonLoading(state, ownProps.pokemonName),
-  pokemonExists: hasPokemon(state, ownProps.pokemonName),
-})
+const mapStateToProps = (state, ownProps) => {
+  const pokemonName = getDefaultSpeciesPokemon(state, ownProps.speciesName);
+
+  return {
+    pokemonName,
+    isLoading: isPokemonLoading(state, pokemonName),
+    pokemonExists: hasPokemon(state, pokemonName),
+  }
+}
 
 const mapDispatchToProps = {
   onPokemonFetch: fetchPokemonsFromSpecies,

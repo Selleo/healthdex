@@ -42,5 +42,3 @@ export const getPokemonMoves = (state, name) => getPokemonByName(state, name).mo
 export const getPokemonHeight = (state, name) => getPokemonByName(state, name).height / 10;
 
 export const getPokemonWeight = (state, name) => getPokemonByName(state, name).weight / 10;
-
-

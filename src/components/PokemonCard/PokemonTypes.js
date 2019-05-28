@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import flowRight from 'lodash/flowRight';
 import startCase from 'lodash/startCase';
 import { withPokemonName } from '../../hocs/withPokemonName';
-import { getPokemonTypes } from '../../store/pokemons/selectors';
+import { withPokemonTypes } from '../../hocs/withPokemonTypes';
 
 export function PokemonTypes(props) {
   const { pokemonTypes } = props;
@@ -20,11 +19,8 @@ export function PokemonTypes(props) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  pokemonTypes: getPokemonTypes(state, ownProps.pokemonName)
-})
 
 export const PokemonTypesContainer = flowRight([
   withPokemonName,
-  connect(mapStateToProps),
+  withPokemonTypes,
 ])(PokemonTypes);

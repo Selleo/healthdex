@@ -3,8 +3,9 @@ import { withPokemonNationalNumber } from '../../hocs/withPokemonNationalNumber'
 
 export function PokemonNationalNumber(props) {
   const { pokemonNationalNumber } = props;
+
   return (
-    <div>#{pokemonNationalNumber}</div>
+    <div>#{pokemonNationalNumber || 'unknown'}</div>
   )
 }
 
