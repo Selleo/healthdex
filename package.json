@@ -25,7 +25,9 @@
   },
   "eslintConfig": {
     "extends": "react-app",
-    "globals": ["cy"]
+    "globals": {
+      "cy": "readonly"
+    }
   },
   "browserslist": {
     "production": [
