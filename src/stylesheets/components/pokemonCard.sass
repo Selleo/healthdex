@@ -13,6 +13,9 @@
     filter: drop-shadow(4px 4px 4px rgba($color-black, .2))
     flex: 0 0 128px
     justify-content: center
+    min:
+      height: 96px
+      width: 96px
 
   &__info
     flex: 0 0 300px
@@ -64,6 +67,39 @@
   display: flex
   justify-content: center
   text-align: center
+
+  &:not(:only-child)
+    margin:
+      bottom: $m-sm
+      top: $m-sm
+
+  &__group > .evolution
+    &:nth-child(3) > .evolution__arrow
+      transform: rotate(-15deg)
+
+    &:nth-last-child(3) > .evolution__arrow
+      transform: rotate(15deg)
+
+    &:nth-child(2) > .evolution__arrow
+      transform: rotate(-30deg)
+
+    &:nth-last-child(2) > .evolution__arrow
+      transform: rotate(30deg)
+
+    &:first-child > .evolution__arrow
+      transform: rotate(-45deg)
+
+    &:last-child > .evolution__arrow
+      transform: rotate(45deg)
+
+    &:only-child > .evolution__arrow,
+    &:nth-child(2):nth-last-child(2) > .evolution__arrow,
+    &:nth-child(3):nth-last-child(3) > .evolution__arrow
+      transform: none
+
+  &__arrow
+    margin-right: $m-base
+    width: 26px
 
   &__group
     margin-left: $m-base

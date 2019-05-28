@@ -1,6 +1,5 @@
 import React from 'react'
 import flowRight from 'lodash/flowRight';
-import startCase from 'lodash/startCase';
 import { withPokemonName } from '../../hocs/withPokemonName';
 import { withPokemonTypes } from '../../hocs/withPokemonTypes';
 
@@ -9,11 +8,9 @@ export function PokemonTypes(props) {
 
   return (
     <p>
-      Type:
+      Type:&nbsp;
       {pokemonTypes.map((type) => (
-        <span key={type}>
-          {' '}<span className="btn -primary">{startCase(type)}</span>
-        </span>
+        <span className={`pokemon-type -${type}`}>{type}</span>
       ))}
     </p>
   )

@@ -4,10 +4,9 @@ import cn from 'classnames';
 export function PokemonTypeButton(props) {
   const { type, label, isActive, onClick } = props;
 
-  const className = cn('btn', {
+  const className = cn('btn -default', {
     [`-${type}`]: type,
-    '-default': !isActive,
-    '-primary': isActive,
+    '-active': isActive,
   });
 
   return (
