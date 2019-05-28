@@ -9,7 +9,7 @@ import { PokemonNationalNumberContainer } from './PokemonNationalNumber';
 import { getDefaultSpeciesPokemon } from '../../store/pokemonSpecies/selectors';
 import { PokemonTypesContainer } from './PokemonTypes';
 
-export function PokemonShortInfo(props) {
+export function Evolution(props) {
   const { speciesName, pokemonName, isLoading, onPokemonFetch, pokemonExists } = props;
 
   usePokemonFetch(speciesName, onPokemonFetch);
@@ -44,4 +44,4 @@ const mapDispatchToProps = {
   onPokemonFetch: fetchPokemonsFromSpecies,
 }
 
-export const PokemonShortInfoContainer = connect(mapStateToProps, mapDispatchToProps)(PokemonShortInfo)
+export const EvolutionContainer = connect(mapStateToProps, mapDispatchToProps)(Evolution)
