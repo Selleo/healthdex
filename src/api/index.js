@@ -3,12 +3,12 @@ import { Pokedex } from 'pokeapi-js-wrapper';
 export const client = new Pokedex({ cache: true, protocol: 'https' })
 
 export const getPokemonTypesList = async () => {
-  const { results } = await client.getTypesList({ limit: -1 });
+  const { results } = await client.getTypesList({ limit: 0 });
   return results;
 }
 
 export const getPokemonList = async () => {
-  const { results } = await client.getPokemonsList({ limit: -1 });
+  const { results } = await client.getPokemonsList({ limit: 0 });
   return results;
 }
 

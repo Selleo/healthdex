@@ -20,10 +20,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": ["cy"]
   },
   "browserslist": {
     "production": [
@@ -38,11 +40,14 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^24.0.13",
     "@types/lodash": "^4.14.132",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.0.9",
     "@types/redux": "^3.6.0",
-    "node-sass": "^4.12.0"
+    "cypress": "^3.3.1",
+    "node-sass": "^4.12.0",
+    "react-test-renderer": "^16.8.6"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "count": 964,
+  "next": "https://pokeapi.co/api/v2/pokemon/?offset=11&limit=11",
+  "previous": null,
+  "results": [
+    {
+      "name": "eevee",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    }
+  ]
+}
