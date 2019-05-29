@@ -7,10 +7,9 @@ export function PokemonName(props) {
   const { translatedPokemonName } = props;
 
   return (
-    <p>
-      Name:{' '}
-      <strong>{translatedPokemonName}</strong>
-    </p>
+    <div className='pokemon-card__name'>
+      {translatedPokemonName}
+    </div>
   )
 }
 

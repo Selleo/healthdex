@@ -26,6 +26,7 @@ export function PokemonList(props) {
 
   return (
     <InfiniteScroll
+      className='pokemon-list'
       pageStart={0}
       threshold={400}
       hasMore={hasMore}

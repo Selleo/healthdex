@@ -1,15 +1,17 @@
 .pokemon-filter
   background-color: $color-white
   box-shadow: 0 0 $m-lg $color-gray-light
-  padding:
-    bottom: $m-sm
-    left: $m-base
-    top: $m-base
+  flex: 0 0 auto
+  height: 100vh
+  overflow: auto
+  padding: $m-sm
   position: sticky
   top: 0
   z-index: 1
 
   > *
+    display: block
     margin:
       bottom: $m-sm
       right: $m-sm
+    width: 100%

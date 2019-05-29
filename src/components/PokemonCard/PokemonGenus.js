@@ -8,9 +8,8 @@ export function PokemonGenus(props) {
   const { pokemonGenus } = props;
 
   return (
-    <p>
-      Species:{' '}
-      <strong>{pokemonGenus}</strong>
+    <p className='pokemon-card__genus'>
+      {pokemonGenus}
     </p>
   )
 }

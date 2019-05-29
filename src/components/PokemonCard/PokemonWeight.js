@@ -8,10 +8,9 @@ export function PokemonWeight(props) {
   const { pokemonHeight } = props;
 
   return (
-    <p>
-      Weight:{' '}
-      <strong>{pokemonHeight.toFixed(1)}kg</strong>
-    </p>
+    <div className='pokemon-stat -weight'>
+      {pokemonHeight.toFixed(1)}kg
+    </div>
   )
 }
 

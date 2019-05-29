@@ -1,8 +1,9 @@
 .pokemon-card
+  $this: &
   align-items: center
   display: flex
   flex-wrap: wrap
-  padding: $m-sm $m-base
+  padding: ($m-base + $m-sm) $m-base $m-base
 
   &:nth-of-type(even)
     background-color: $color-gray-lighter
@@ -18,8 +19,49 @@
       width: 96px
 
   &__info
+    background: $color-white
+    border-radius: $border-radius-base
+    box-shadow: $m-sm $m-sm $m-xl $color-gray-light
     flex: 0 0 300px
     margin: 0 $m-base
+    position: relative
+    text-align: center
+
+  &__header
+    position: relative
+
+    #{$this}__img
+      left: 50%
+      position: absolute
+      top: 50%
+      transform: translate(-50%,-50%)
+
+  &__id
+    color: $color-gray-light
+    font-size: 100px
+    font-weight: $font-weight-bold
+
+  &__name
+    font:
+      size: $font-size-lg
+      weight: $font-weight-bold
+    margin-top: -$m-sm
+
+  &__genus
+    font-size: $font-size-sm
+
+  &__abilities
+    margin:
+      bottom: $m-base
+      top: $m-xs
+
+  &__ability
+    font:
+      size: $font-size-sm
+      weight: $font-weight-bold
+
+    & + &
+      margin-left: $m-sm
 
   &__table
     margin-right: $m-base
@@ -58,3 +100,20 @@
   &__details
     align-items: center
     display: flex
+
+.pokemon-stat
+  background-color: $color-white
+  border-radius: $border-radius-lg
+  box-shadow: $m-sm $m-sm $m-xl $color-gray-light
+  font-size: $font-size-sm
+  font-weight: $font-weight-bold
+  line-height: $m-xl
+  position: absolute
+  top: -$m-sm
+  width: $m-xl
+
+  &.-height
+    left: -$m-sm
+
+  &.-weight
+    right: -$m-sm

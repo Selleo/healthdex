@@ -7,12 +7,11 @@ export function PokemonTypes(props) {
   const { pokemonTypes } = props;
 
   return (
-    <p>
-      Type:&nbsp;
-      {pokemonTypes.map(type => (
+    <div className='pokemon-types'>
+      {pokemonTypes.map((type) => (
         <span key={type} className={`pokemon-type -${type}`}>{type}</span>
       ))}
-    </p>
+    </div>
   )
 }
 

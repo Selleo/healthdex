@@ -9,14 +9,13 @@ export function PokemonAbilities(props) {
   const { pokemonAbilities } = props;
 
   return (
-    <p>
-      Abilities:{' '}
+    <div className='pokemon-card__abilities'>
       {pokemonAbilities.map(ability => (
-        <strong key={ability}>
-          {startCase(ability)}{', '}
-        </strong>
+        <span className='pokemon-card__ability' key={ability}>
+          {startCase(ability)}
+        </span>
       ))}
-    </p>
+    </div>
   )
 }
 

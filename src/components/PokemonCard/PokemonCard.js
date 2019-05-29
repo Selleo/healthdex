@@ -30,9 +30,11 @@ export const PokemonCard = memo(function PokemonCard(props) {
   return (
     <PokemonNameContext.Provider value={pokemonName}>
       <div className='pokemon-card'>
-        <PokemonAvatarContainer />
         <div className='pokemon-card__info'>
-          <PokemonNationalNumberContainer />
+          <div className='pokemon-card__header'>
+            <PokemonAvatarContainer />
+            <PokemonNationalNumberContainer />
+          </div>
           <PokemonNameContainer />
           <PokemonGenusContainer />
           <PokemonTypesContainer />
