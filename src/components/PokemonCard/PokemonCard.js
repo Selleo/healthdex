@@ -45,7 +45,7 @@ export const PokemonCard = memo(function PokemonCard(props) {
         <PokemonStatsContainer />
 
         <button className="btn -primary" type="button" onClick={() => setDetails(status => !status)}>
-          Show details
+          {details ? 'Hide' : 'Show'} details
         </button>
 
         {details && (

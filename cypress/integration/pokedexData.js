@@ -117,5 +117,7 @@ describe('Pokedex', () => {
 
     cy.contains('Vaporeon');
     cy.contains('Jolteon');
+
+    cy.contains('Hide details').click();
   });
 });
