@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/healthdex/static/css/main.5c9a680b.chunk.css",
+    "main.js": "/healthdex/static/js/main.82ff0fb9.chunk.js",
+    "main.js.map": "/healthdex/static/js/main.82ff0fb9.chunk.js.map",
+    "runtime~main.js": "/healthdex/static/js/runtime~main.32e27f26.js",
+    "runtime~main.js.map": "/healthdex/static/js/runtime~main.32e27f26.js.map",
+    "static/js/2.a7a4d727.chunk.js": "/healthdex/static/js/2.a7a4d727.chunk.js",
+    "static/js/2.a7a4d727.chunk.js.map": "/healthdex/static/js/2.a7a4d727.chunk.js.map",
+    "index.html": "/healthdex/index.html",
+    "precache-manifest.62e3c26860d125f24c506b2d4ca2c2bb.js": "/healthdex/precache-manifest.62e3c26860d125f24c506b2d4ca2c2bb.js",
+    "service-worker.js": "/healthdex/service-worker.js",
+    "static/css/main.5c9a680b.chunk.css.map": "/healthdex/static/css/main.5c9a680b.chunk.css.map"
+  }
+}
