@@ -10,13 +10,13 @@ export function PokemonStats(props) {
   const graphClassName = (width) => {
     let className = 'pokemon-card__graph';
     const barColor = 20;
-    if(width < barColor) {
+    if(width <= barColor) {
       className += ' -low'
-    } else if (width > barColor && width < barColor * 2) {
+    } else if (width > barColor && width <= barColor * 2) {
       className += ' -medium'
-    } else if (width > barColor * 2 && width < barColor * 3) {
+    } else if (width > barColor * 2 && width <= barColor * 3) {
       className += ' -high'
-    } else if (width > barColor * 3 && width < barColor * 4) {
+    } else if (width > barColor * 3 && width <= barColor * 4) {
       className += ' -epic'
     }
    return className;
