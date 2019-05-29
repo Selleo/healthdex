@@ -93,10 +93,7 @@ describe('Pokedex', () => {
     cy.wait('@pokemonEevee');
     cy.wait('@pokemonSpeciesEevee');
 
-    const pokemonCard = cy.get('.pokemon-card');
-
-    pokemonCard.contains('Eevee');
-    pokemonCard.get('p').first().contains('133');
+    cy.get('.pokemon-card').contains('Eevee');
   });
 
   it('should fetch pokemons from normal type', () => {

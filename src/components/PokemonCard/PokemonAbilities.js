@@ -1,8 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import startCase from 'lodash/startCase';
 import flowRight from 'lodash/flowRight';
 import { withPokemonName } from '../../hocs/withPokemonName';
-import { connect } from 'react-redux';
 import { getPokemonAbilities } from '../../store/pokemons/selectors';
 
 export function PokemonAbilities(props) {
