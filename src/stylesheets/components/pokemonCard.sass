@@ -84,7 +84,7 @@
     width: 200px
 
   &__graph
-    background-color: $brand-secondary
+    background-color: $brand-primary
     height: $m-sm
     position: relative
 
@@ -93,13 +93,16 @@
       background-image: linear-gradient(70deg, rgba(255,255,255,.2), rgba(255,255,255,0))
 
     &.-low
-      background-color: $brand-danger
+      background-color: $stats-low
 
     &.-medium
-      background-color: $brand-warning
+      background-color: $stats-medium
 
     &.-high
-      background-color: $brand-success
+      background-color: $stats-high
+
+    &.-epic
+      background-color: $stats-epic
 
   &__details
     align-items: center
