@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/healthdex/static/css/main.5c9a680b.chunk.css",
+    "main.css": "/healthdex/static/css/main.c97a2821.chunk.css",
     "main.js": "/healthdex/static/js/main.82ff0fb9.chunk.js",
     "main.js.map": "/healthdex/static/js/main.82ff0fb9.chunk.js.map",
     "runtime~main.js": "/healthdex/static/js/runtime~main.32e27f26.js",
@@ -8,8 +8,8 @@
     "static/js/2.a7a4d727.chunk.js": "/healthdex/static/js/2.a7a4d727.chunk.js",
     "static/js/2.a7a4d727.chunk.js.map": "/healthdex/static/js/2.a7a4d727.chunk.js.map",
     "index.html": "/healthdex/index.html",
-    "precache-manifest.62e3c26860d125f24c506b2d4ca2c2bb.js": "/healthdex/precache-manifest.62e3c26860d125f24c506b2d4ca2c2bb.js",
+    "precache-manifest.3f786a9a8839c0c06d23f494e384906b.js": "/healthdex/precache-manifest.3f786a9a8839c0c06d23f494e384906b.js",
     "service-worker.js": "/healthdex/service-worker.js",
-    "static/css/main.5c9a680b.chunk.css.map": "/healthdex/static/css/main.5c9a680b.chunk.css.map"
+    "static/css/main.c97a2821.chunk.css.map": "/healthdex/static/css/main.c97a2821.chunk.css.map"
   }
 }
