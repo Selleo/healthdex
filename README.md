@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokedex App
 
-## Available Scripts
+## Deployments
 
-In the project directory, you can run:
+> TBD
 
-### `npm start`
+## Project overview
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app is made in `react` with `redux` store.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+At the initial load we fetch list of all possible pokemons and all pokemon types to reduce the number of API requests.
 
-### `npm test`
+Because requests are cached (thanks to `pokeapi-js-wrapper`), we can fetch list of all pokemons for a given type the same way
+we are doing it for all pokemon list.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Unfortunately, to fetch all the required pokemon data we need at least **two** requests (for some pokemons, to properly fetch the pokemon name, we need **three**; all of these are cached as well).
 
-### `npm run build`
+Revealing pokemon details requires fetching **pokemon evolution**, evolution **species** and **default pokemon** for each evolution step.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Directory structure
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### `cypress/fixtures/`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contains mocked responses from pokeapi.co - because of that we can safely test our app integrity even if for some reason the API is down.
 
-### `npm run eject`
+#### `cypress/integration/`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Integration tests are stored in this directory
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `src/api/`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This directory contains all api-related stuff. This mostly wraps `pokeapi-js-wrapper` into utility functions.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### `src/components/`
 
-## Learn More
+All react components are stored in this directory. Major components are divided in their own directories.
+If a component is not very complex or is only used within one component - it is stored in its parent component directory.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `src/contexts/`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Directory for storing react contexts
 
-### Code Splitting
+#### `src/hocs/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Here every higher order component functions are stored. These are mostly helpers for reusing `react-redux` connectors.
 
-### Analyzing the Bundle Size
+#### `src/hooks/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+React hooks are stored in this directory.
 
-### Making a Progressive Web App
+#### `src/store/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+This directory contains modules and utilities for `redux` store.
 
-### Advanced Configuration
+#### `stc/store/{pokemons,pokemonSpecies}/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Contains modules for redux sub-stores for pokemon and pokemon species.
 
-### Deployment
+Each directory contains **reducer**, **selectors** ,**action creators** and **operations** - which are basically complex action creators (like `redux-thunk` thunks for example).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### `src/stylesheets/`
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Contains application stylesheets.
