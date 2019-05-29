@@ -8,7 +8,8 @@ export function PokemonNationalNumber(props) {
 
   return (
     <div className='pokemon-card__id'>
-      #{pokemonNationalNumber || 'unknown'}
+      {pokemonNationalNumber && `#${pokemonNationalNumber}`}
+      {!pokemonNationalNumber && '???'}
     </div>
   )
 }

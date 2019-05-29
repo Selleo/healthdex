@@ -9,9 +9,12 @@ export function PokemonStats(props) {
   const { pokemonStats } = props;
   const graphClassName = (width) => {
     let className = 'pokemon-card__graph';
-    if(width < 33) {
+    const barColor = 25;
+    if(width < barColor) {
       className += ' -low'
-    } else if (width > 67) {
+    } else if (width > barColor && width < barColor * 2) {
+      className += ' -medium'
+    } else if (width > barColor * 2 && width < barColor * 3) {
       className += ' -high'
     }
    return className;
@@ -32,7 +35,7 @@ export function PokemonStats(props) {
             </td>
             <td>
               <div className='pokemon-card__graph-wrapper'>
-                <div className={graphClassName(statData.base_stat / 150 * 100)} style={{width: statData.base_stat / 150 * 100 + '%'}}></div>
+                <div className={graphClassName(statData.base_stat / 255 * 100)} style={{width: statData.base_stat / 255 * 100 + '%'}}></div>
               </div>
             </td>
           </tr>

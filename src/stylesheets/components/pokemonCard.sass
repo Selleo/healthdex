@@ -23,7 +23,9 @@
     border-radius: $border-radius-base
     box-shadow: $m-sm $m-sm $m-xl $color-gray-light
     flex: 0 0 300px
-    margin: 0 $m-base
+    margin:
+      left: $m-base
+      right: $m-xl
     position: relative
     text-align: center
 
@@ -64,7 +66,7 @@
       margin-left: $m-sm
 
   &__table
-    margin-right: $m-base
+    margin-right: $m-xl
 
     td
       text-align: right
@@ -82,7 +84,7 @@
     width: 200px
 
   &__graph
-    background-color: $brand-primary
+    background-color: $brand-secondary
     height: $m-sm
     position: relative
 
@@ -93,6 +95,8 @@
     &.-low
       background-color: $brand-danger
 
+    &.-medium
+      background-color: $brand-warning
 
     &.-high
       background-color: $brand-success
