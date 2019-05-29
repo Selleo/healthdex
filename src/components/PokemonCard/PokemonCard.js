@@ -43,14 +43,14 @@ export const PokemonCard = memo(function PokemonCard(props) {
         <PokemonStatsContainer />
 
         <button className="btn -primary" type="button" onClick={() => setDetails(status => !status)}>
-          Show evolution details
+          Show details
         </button>
 
         {details && (
-          <>
+          <div className='pokemon-card__details'>
             <PokemonEvolutionContainer />
             <PokemonMovesContainer />
-          </>
+          </div>
         )}
       </div>
     </PokemonNameContext.Provider>

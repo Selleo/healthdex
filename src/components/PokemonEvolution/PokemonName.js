@@ -5,7 +5,7 @@ export const PokemonName = memo(function PokemonName(props) {
   const { translatedPokemonName } = props;
 
   return (
-    <div className='evolution__name'>{translatedPokemonName}</div>
+    <div className='pokemon-evolution__name'>{translatedPokemonName}</div>
   );
 });
 

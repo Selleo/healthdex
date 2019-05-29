@@ -55,59 +55,6 @@
     &.-high
       background-color: $brand-success
 
-  &__evolution
+  &__details
     align-items: center
     display: flex
-    flex: 0 0 100%
-    justify-content: center
-    padding: $m-base
-
-.evolution
-  align-items: center
-  display: flex
-  justify-content: center
-  text-align: center
-
-  &:not(:only-child)
-    margin:
-      bottom: $m-sm
-      top: $m-sm
-
-  &__group > .evolution
-    &:nth-child(3) > .evolution__arrow
-      transform: rotate(-15deg)
-
-    &:nth-last-child(3) > .evolution__arrow
-      transform: rotate(15deg)
-
-    &:nth-child(2) > .evolution__arrow
-      transform: rotate(-30deg)
-
-    &:nth-last-child(2) > .evolution__arrow
-      transform: rotate(30deg)
-
-    &:first-child > .evolution__arrow
-      transform: rotate(-45deg)
-
-    &:last-child > .evolution__arrow
-      transform: rotate(45deg)
-
-    &:only-child > .evolution__arrow,
-    &:nth-child(2):nth-last-child(2) > .evolution__arrow,
-    &:nth-child(3):nth-last-child(3) > .evolution__arrow
-      transform: none
-
-  &__arrow
-    margin-right: $m-base
-    width: 26px
-
-  &__group
-    margin-left: $m-base
-
-  &__id
-    color: $color-gray
-    margin-top: $m-sm
-
-  &__name
-    font-weight: $font-weight-bold
-    margin: $m-xs 0

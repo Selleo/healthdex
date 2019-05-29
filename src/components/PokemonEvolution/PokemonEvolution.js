@@ -11,7 +11,7 @@ export function PokemonEvolution(props) {
   const evolution = usePokemonEvolution(props.pokemonEvolutionId);
 
   return (
-    <div className="pokemon-card__evolution">
+    <div className="pokemon-evolution">
       {!evolution && <Loader />}
       {evolution && <EvolutionStep evolution={evolution} />}
     </div>

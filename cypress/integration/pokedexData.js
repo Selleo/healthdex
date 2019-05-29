@@ -113,7 +113,7 @@ describe('Pokedex', () => {
     cy.wait('@pokemonEevee');
     cy.wait('@pokemonSpeciesEevee');
 
-    cy.contains('Show evolution details').click();
+    cy.contains('Show details').click();
 
     cy.wait('@pokemonJolteon');
     cy.wait('@pokemonVaporeon');

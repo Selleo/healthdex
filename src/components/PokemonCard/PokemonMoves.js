@@ -9,9 +9,10 @@ export function PokemonMoves(props) {
   const { pokemonMoves } = props;
 
   return (
-    <div>
+    <div className='pokemon-moves'>
+      <h3 className='pokemon-moves__header'>Moves list</h3>
       {pokemonMoves.map(move => (
-        <span key={move}>
+        <span className='pokemon-moves__move' key={move}>
           {startCase(move)}
         </span>
       ))}
