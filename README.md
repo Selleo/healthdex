@@ -1,5 +1,6 @@
 # Pokedex App
 
+App demo page: https://selleo.github.io/healthdex/
 
 ## Project setup
 
